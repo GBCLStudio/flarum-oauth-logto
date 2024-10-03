@@ -3,7 +3,7 @@ name: Flarum Build
 on:
   push:
     branches:
-      - main
+      - master
 
 
 jobs:
