@@ -1,4 +1,4 @@
-# Sign in With Slack
+# Sign in With Logto
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg) [![Latest Stable Version](https://img.shields.io/packagist/v/gbcl/oauth-logto.svg)](https://packagist.org/packages/gbcl/oauth-logto) [![Total Downloads](https://img.shields.io/packagist/dt/gbcl/oauth-logto.svg)](https://packagist.org/packages/gbcl/oauth-logto)
 

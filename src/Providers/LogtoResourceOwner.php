@@ -25,7 +25,7 @@ class LogtoResourceOwner implements ResourceOwnerInterface
 
     public function getName(): ?string
     {
-        return Arr::get($this->response, 'name');
+        return Arr::get($this->response, 'username');
     }
 
     public function getEmail(): ?string
