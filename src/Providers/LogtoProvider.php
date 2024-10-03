@@ -1,5 +1,4 @@
 <?php
-
 namespace GBCLStudio\OAuthLogto\Providers;
 
 use League\OAuth2\Client\Provider\AbstractProvider;

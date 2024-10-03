@@ -1,5 +1,4 @@
 <?php
-
 namespace GBCLStudio\OAuthLogto\Providers;
 
 use Illuminate\Support\Arr;
