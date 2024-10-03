@@ -1,6 +1,6 @@
 <?php
 
-namespace Ssangyongsports\OAuthLogto\Providers;
+namespace GBCLStudio\OAuthLogto\Providers;
 
 use Illuminate\Support\Arr;
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ssangyongsports\OAuthLogto\Providers;
+namespace GBCLStudio\OAuthLogto\Providers;
 
 use Flarum\Forum\Auth\Registration;
 use FoF\OAuth\Provider;
@@ -20,7 +20,7 @@ class Logto extends Provider
 
     public function link(): string
     {
-        return 'https://auth.ssangyongsports.eu.org/oidc';
+        return 'https://docs.logto.io/docs/references/applications/';
     }
 
     public function fields(): array
@@ -28,6 +28,7 @@ class Logto extends Provider
         return [
             'client_id'     => 'required',
             'client_secret' => 'required',
+            'logto_domain'  => 'required'
         ];
     }
 
@@ -37,12 +38,13 @@ class Logto extends Provider
             'clientId'     => $this->getSetting('client_id'),
             'clientSecret' => $this->getSetting('client_secret'),
             'redirectUri'  => $redirectUri,
+            'oauthDomain'  => urlencode($this->getSetting('logto_domain'))
         ]);
     }
 
     public function options(): array
     {
-        return ['scope' => ['openid', 'email', 'profile']];
+        return ['scope' => ['openid email profile']];
     }
 
     public function suggestions(Registration $registration, $user, string $token)
@@ -51,8 +53,7 @@ class Logto extends Provider
 
         $registration
             ->provideTrustedEmail($email)
-            ->provideAvatar($user->getImage())
-            ->suggestUsername($user->getName())
+            ->suggestUsername(str_replace(' ', '', trim($user->getName())))
             ->setPayload($user->toArray());
     }
 }

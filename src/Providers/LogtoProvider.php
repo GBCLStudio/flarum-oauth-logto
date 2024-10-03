@@ -1,6 +1,6 @@
 <?php
 
-namespace Ssangyongsports\OAuthLogto\Providers;
+namespace GBCLStudio\OAuthLogto\Providers;
 
 use League\OAuth2\Client\Provider\AbstractProvider;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
@@ -9,30 +9,41 @@ use Psr\Http\Message\ResponseInterface;
 
 class LogtoProvider extends AbstractProvider
 {
+    protected $oauthDomain;
+    
+    public function getOauthDomain()
+    {
+        return $this->oauthDomain;
+    }
+
     public function getBaseAuthorizationUrl()
     {
-        return 'https://auth.ssangyongsports.eu.org/oidc/auth';
+        return sprintf('https://%s/oidc/auth', $this->oauthDomain);
     }
 
     public function getBaseAccessTokenUrl(array $params)
     {
-        return 'https://auth.ssangyongsports.eu.org/oidc/token';
+        return sprintf('https://%s/oidc/token', $this->oauthDomain);
     }
 
     public function getResourceOwnerDetailsUrl(AccessToken $token)
     {
-        return 'https://auth.ssangyongsports.eu.org/oidc/me';
+        return sprintf('https://%s/oidc/me', $this->oauthDomain);
     }
 
     protected function getDefaultScopes()
     {
-        return ['openid', 'profile', 'email'];
+        return ['openid profile email'];
     }
 
     protected function checkResponse(ResponseInterface $response, $data)
     {
         if (isset($data['error'])) {
-            throw new IdentityProviderException($data['error_description'] ?? $data['error'], null, $data);
+            throw new IdentityProviderException(
+                (isset($data['error']['message']) ? $data['error']['message'] : $response->getReasonPhrase()),
+                $response->getStatusCode(),
+                $response
+            );
         }
     }
 
@@ -43,6 +54,7 @@ class LogtoProvider extends AbstractProvider
 
     protected function prepareAccessTokenResponse(array $result)
     {
+        $result = parent::prepareAccessTokenResponse($result);
         return [
             'access_token' => $result['access_token'],
             'id_token'     => $result['id_token'],

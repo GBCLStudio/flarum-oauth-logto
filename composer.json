@@ -1,5 +1,5 @@
 {
-    "name": "ssangyongsports/logto",
+    "name": "gbcl/logto",
     "description": "Sign in with Logto",
     "keywords": [
         "flarum", "logto", "oauth", "fof", "sso"
@@ -7,24 +7,24 @@
     "type": "flarum-extension",
     "license": "MIT",
     "require": {
-        "flarum/core": "^1.3.1",
+        "flarum/core": "^1.8.0",
         "fof/oauth": "^1.3"
     },
     "authors": [
         {
-            "name": "ssangyongsports",
-            "email": "your-email@example.com",
+            "name": "GBCLStudio",
+            "email": "gbclstudio@gmail.com",
             "role": "Developer"
         }
     ],
     "support": {
-        "source": "https://github.com/ssangyongsports/logto",
-        "issues": "https://github.com/ssangyongsports/logto/issues"
+        "source": "https://github.com/GBCLStudio/logto",
+        "issues": "https://github.com/GBCLStudio/logto/issues"
     },
     "homepage": "https://your-homepage.com",
     "autoload": {
         "psr-4": {
-            "Ssangyongsports\\Logto\\": "src/"
+            "GBCLStudio\\OAuthLogto\\": "src/"
         }
     },
     "extra": {

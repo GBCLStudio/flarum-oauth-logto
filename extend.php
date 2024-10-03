@@ -1,15 +1,14 @@
 <?php
-
 /*
- * This file is part of ssangyongsports/logto.
+ * This file is part of gbcl/logto.
  *
- * Copyright (c) 2024 SsangyongSports.
+ * Copyright (c) 2024 GBCLStudio.
  *
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
-namespace Ssangyongsports\Logto;
+namespace GBCLStudio\OAuthLogto;
 
 use Flarum\Extend;
 use FoF\OAuth\Extend as OAuthExtend;
