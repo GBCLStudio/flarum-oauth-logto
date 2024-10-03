@@ -1,43 +1,48 @@
 # Sign in With Slack
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg) [![Latest Stable Version](https://img.shields.io/packagist/v/blomstra/oauth-slack.svg)](https://packagist.org/packages/blomstra/oauth-slack) [![Total Downloads](https://img.shields.io/packagist/dt/blomstra/oauth-slack.svg)](https://packagist.org/packages/blomstra/oauth-slack)
+![License](https://img.shields.io/badge/license-MIT-blue.svg) [![Latest Stable Version](https://img.shields.io/packagist/v/gbcl/oauth-logto.svg)](https://packagist.org/packages/gbcl/oauth-logto) [![Total Downloads](https://img.shields.io/packagist/dt/gbcl/oauth-logto.svg)](https://packagist.org/packages/gbcl/oauth-logto)
 
-A [Flarum](http://flarum.org) extension. Sign in with Slack
+A [Flarum](http://flarum.org) extension. Sign in with Logto Cloud or OSS
 
 ## Installation
 
 Install with composer:
 
 ```sh
-composer require blomstra/oauth-slack:"*"
+composer require gbcl/oauth-logto:"*"
 ```
 
 ## Updating
 
 ```sh
-composer update blomstra/oauth-slack
+composer update gbcl/oauth-logto
 php flarum cache:clear
 ```
 
 ## Configuration
 
-Once enabled, this extension will add a `Slack` option to the settings page of `fof/oauth`. Toggle `Slack` on, and hit the configure icon.
+Once enabled, this extension will add a `Logto` option to the settings page of `fof/oauth`. Toggle `Logto` on, and hit the configure icon.
 
-Follow the [Slack documentation](https://api.slack.com/authentication/sign-in-with-slack) to create an [application](https://api.slack.com/apps)
+Created an `Traditional Web` Application on `Authentication > Applications > Create Application`
+Set the `Redirect URIs` labels to `https://your-flarum/auth/logto`,
+then, copy three things in the settings:
+ - Logto endpoint
+ - App secrets > Default secret > value
+ - App ID
 
-It is **imperitive** that you grant the following scopes to your new application at Slack:
-- `openid`
-- `email`
-- `profile`
+Paste the stuff above to the settings page of `fof/oauth`. One thing you need to notice that the `logto_domain` label needs to exclude the HTTP Protocol.
 
-Set the callback URL as given in the extension settings.
+## Support
 
-Enter the `Client ID` and `Client Secret` as displayed in the `Basic Information` page at Slack into the Flarum configuration.
-
-Enjoy logging in with your Slack credentials!
+This extension is under active development. Provide [GitHub Issues](https://github.com/GBCLStudio/flarum-oauth-logto/issues) to help us improve.
 
 ## Links
 
-- [Packagist](https://packagist.org/packages/blomstra/oauth-slack)
-- [GitHub](https://github.com/blomstra/flarum-ext-oauth-slack)
-- [Discuss](https://discuss.flarum.org/d/31039)
+- [Packagist](https://packagist.org/packages/gbcl/oauth-logto)
+- [GitHub](https://github.com/GBCLStudio/flarum-oauth-logto)
+
+## Made with ❤ by GBCLStudio
+
+Support Us:
+ - [Afdian 爱发电](https://afdian.com/@GBCLStudio)
+ - [OpenCollective](https://opencollective.com/gbclstudio)

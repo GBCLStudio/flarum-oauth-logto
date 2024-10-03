@@ -1,5 +1,5 @@
 {
-    "name": "gbcl/logto",
+    "name": "gbcl/oauth-logto",
     "description": "Sign in with Logto",
     "keywords": [
         "flarum", "logto", "oauth", "fof", "sso"
